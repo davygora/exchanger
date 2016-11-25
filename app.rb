@@ -23,7 +23,7 @@ ActiveRecord::Base.establish_connection(
 # create table
 ActiveRecord::Schema.define do
   create_table :main_data, force: true do |t|
-    t.datetime :date
+    t.date     :date
     t.float    :course
   end
 end
@@ -42,6 +42,9 @@ end
 class Exchanger < MainData
 
   def self.exchange(count, date)
+    if date.size == 0
+      raise ArgumentError.new('Date is empty!')
+    end
     if date.kind_of?(Array)
       results = []
       date.each do |d|
@@ -54,5 +57,5 @@ class Exchanger < MainData
   end
 end
 
-p Exchanger.exchange(100, [Date.yesterday, Date.today-10.day])
-p Exchanger.exchange(100, '2016-10-26')
+p Exchanger.exchange(100, [Date.yesterday, '2016-10-26', Date.today - 10.day])
+p Exchanger.exchange(100, '2016-11-07')
