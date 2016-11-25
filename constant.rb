@@ -1,0 +1,1 @@
+URL = 'https://sdw.ecb.europa.eu/quickviewexport.do;jsessionid=65155E4C2CEE43B5ECEE035FB1F848DE?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv'
