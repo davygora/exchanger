@@ -6,7 +6,7 @@ require 'active_record'
 require_relative 'main_data'
 
 Date::DATE_FORMATS[:default] = '%F'
-Time::DATE_FORMATS[:db] = '%F' # without '00:00:00' in db
+Time::DATE_FORMATS[:db]      = '%F' # without '00:00:00' in db
 
 #donwload CSV file
 donwload = open(URL)
@@ -16,7 +16,7 @@ end
 
 #create connection
 ActiveRecord::Base.establish_connection(
-  adapter: 'sqlite3',
+  adapter:  'sqlite3',
   database: ':memory:'
 )
 
@@ -56,6 +56,3 @@ class Exchanger < MainData
     end
   end
 end
-
-p Exchanger.exchange(100, [Date.yesterday, '2016-10-26', Date.today - 10.day])
-p Exchanger.exchange(100, '2016-11-07')
