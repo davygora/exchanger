@@ -42,9 +42,8 @@ end
 class Exchanger < MainData
 
   def self.exchange(count, date)
-    if date.size == 0
-      raise ArgumentError.new('Date is empty!')
-    end
+    raise ArgumentError.new('Date is empty!') if date.size == 0
+
     if date.kind_of?(Array)
       results = []
       date.each do |d|
